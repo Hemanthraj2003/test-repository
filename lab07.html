@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Student data</title>
+    <script type="text/javascript">
+      function showResult() {
+        var name = document.getElementById("name").value;
+        var marks1 = document.getElementById("marks1").value;
+        var marks2 = document.getElementById("marks2").value;
+        var marks3 = document.getElementById("marks3").value;
+        var total = marks1 + marks2 + marks3;
+        var avg = total / 3;
+        var grade, result;
+        if (avg >= 85) {
+          grade = "A";
+          result = "First grade";
+        } else if (avg < 85 && avg >= 60) {
+          grade = "B";
+          result = "Second grade";
+        } else if (avg < 60 && avg >= 40) {
+          grade = "C";
+          result = "Third grade";
+        } else {
+          grade = "D";
+          result = "Fail grade";
+        }
+        document.write("<b> Name: " + name + "</b></br>");
+        document.write("<b> Grade :" + grade + "</b></br>");
+        document.write("<h4>" + result + "</h4>");
+      }
+    </script>
+    <body>
+      <form>
+        <table border="5">
+          <tr>
+            <th>Student Details</th>
+          </tr>
+          <td>Student Name :</td>
+          <td><input type="text" id="name" /></td>
+          <tr>
+            <td>Subject 1 marks</td>
+            <td><input type="text" id="marks1" /></td>
+          </tr>
+          <tr>
+            <td>Subject 2 marks</td>
+            <td><input type="text" id="marks2" /></td>
+          </tr>
+          <tr>
+            <td>Subject 3 marks</td>
+            <td><input type="text" id="marks3" /></td>
+          </tr>
+        </table>
+        <br />
+        <input type="button" value="View Results" onclick="showResult()" />
+      </form>
+    </body>
+  </head>
+</html>

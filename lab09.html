@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurant Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333333;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+      }
+
+      th {
+        background-color: #f9f9f9;
+        border: 1px solid #dddddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid #dddddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      select {
+        width: 100%;
+        height: 120px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 120px;
+        resize: none;
+        padding: 5px;
+      }
+
+      input[type="button"],
+      input[type="reset"] {
+        background-color: #4caf50;
+        border: none;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="button"]:hover,
+      input[type="reset"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Restaurant Menu Details</h1>
+
+    <form>
+      <table>
+        <tr>
+          <th colspan="3">Restaurant Menu</th>
+        </tr>
+        <tr>
+          <td>Starters</td>
+          <td>Major Dish</td>
+          <td>Soft Drinks</td>
+        </tr>
+        <tr>
+          <td>
+            <select id="starters" size="4" multiple>
+              <option value="100">Starter 01</option>
+              <option value="120">Starter 02</option>
+              <option value="140">Starter 03</option>
+              <option value="90">Starter 04</option>
+            </select>
+          </td>
+          <td>
+            <select id="major" size="4" multiple>
+              <option value="100">Major 01</option>
+              <option value="120">Major 02</option>
+              <option value="140">Major 03</option>
+              <option value="90">Major 04</option>
+            </select>
+          </td>
+          <td>
+            <select id="soft" size="4" multiple>
+              <option value="100">Soft Drink 01</option>
+              <option value="120">Soft Drink 02</option>
+              <option value="140">Soft Drink 03</option>
+              <option value="90">Soft Drink 04</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <textarea id="orderedItems" rows="10" cols="40" readonly></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <input type="button" onclick="findCost()" value="Find Cost" />
+            <input type="reset" value="Clear" />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <script>
+      function findCost() {
+        var major = document.getElementById("major");
+        var starters = document.getElementById("starters");
+        var soft = document.getElementById("soft");
+        var selectedItems =
+          "Items\t\tPrice\n-----------------------------------\n";
+        var totalCost = 0;
+
+        for (var i = 0; i < major.options.length; i++) {
+          var option = major.options[i];
+          if (option.selected) {
+            var price = parseInt(option.value);
+            totalCost += price;
+            selectedItems += option.text + "\t\t" + price + "\n";
+          }
+        }
+
+        for (var i = 0; i < starters.options.length; i++) {
+          var option = starters.options[i];
+          if (option.selected) {
+            var price = parseInt(option.value);
+            totalCost += price;
+            selectedItems += option.text + "\t\t" + price + "\n";
+          }
+        }
+
+        for (var i = 0; i < soft.options.length; i++) {
+          var option = soft.options[i];
+          if (option.selected) {
+            var price = parseInt(option.value);
+            totalCost += price;
+            selectedItems += option.text + "\t\t" + price + "\n";
+          }
+        }
+
+        selectedItems += "\nTotal Cost:\t\t" + totalCost;
+        document.getElementById("orderedItems").value = selectedItems;
+      }
+    </script>
+  </body>
+</html>
