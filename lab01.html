@@ -1,21 +1,51 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Count Form Elements</title>
-        <script type="text/javascript">
-            function countFormElements(){
-                alert("The number of form Elements are: " + document.myForm.length);
-            }
-        </script>
-    </head>
-    <body>
-        <form name="myForm">
-            Name: <input type="text" /> <br />
-            Password: <input type="password" /><br />
-            Address: <textarea cols="50" rows="10"></textarea><br />
-            Gender: <input type="radio" name="gender" />Male
-            <input type="radio" name="gender" />Female<br />
-            Newsletter: <input type="checkbox" checked /><br />
-            <input type="button" onclick="countFormElements()" value="count" />
-        </form>
-    </body>
+<head>
+    <title>Copy Text to Clipboard</title>
+</head>
+<body>
+    <textarea id="myTextArea" rows="4" cols="50" style="position: absolute; top: -9999px;">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;Count Form Elements&lt;/title&gt;
+            &lt;script type="text/javascript"&gt;
+                function countFormElements() {
+                    alert("The number of form Elements are: " + document.myForm.le);
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;form name="myForm"&gt;
+                Name: &lt;input type="text" /&gt; &lt;br /&gt;
+                Password: &lt;input type="password" /&gt;&lt;br /&gt;
+                Address: &lt;textarea cols="50" rows="10"&gt;&lt;/textarea&gt;&lt;br /&gt;
+                Gender: &lt;input type="radio" name="gender" /&gt;Male
+                &lt;input type="radio" name="gender" /&gt;Female&lt;br /&gt;
+                Newsletter: &lt;input type="checkbox" checked /&gt;&lt;br /&gt;
+                &lt;input type="button" onclick="countFormElements()" value="Count" /&gt;
+            &lt;/form&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </textarea>
+    <div onclick="copyToClipboard()" style="background-color: white; color: white; border-color: white; cursor: pointer;">Copy to Clipboard</div>
+
+    <script>
+        function copyToClipboard() {
+            // Get the textarea element
+            var textarea = document.getElementById('myTextArea');
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the selected text to clipboard
+            document.execCommand('copy');
+
+            // Deselect the text in the textarea
+            window.getSelection().removeAllRanges();
+
+            // Optional: Show a message to indicate that the text has been copied
+        }
+    </script>
+</body>
 </html>
