@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>lab01</title>
+</head>
+<body>
+    <textarea id="myTextArea" rows="4" cols="50" style="position: absolute; top: -9999px;">
+        &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;REVERSE&lt;/title&gt;
+            &lt;script type="text/javascript"&gt;
+                var a,b=0;
+                a=parseInt(prompt("Enter the reverse number"));
+                while(a>0)
+                {
+                    b=b*10;
+                    b=b+parseInt(a%10);
+                    a=parseInt(a/10);
+                }
+                document.write("Reversed number is ",b);
+            &lt;/script&gt;
+    &lt;/head&gt;
+&lt;/html&gt;
+
+    </textarea>
+    <div onclick="copyToClipboard()" style="background-color: white; color: white; border-color: white; cursor: pointer;">Copy to Clipboard</div>
+
+    <script>
+        function copyToClipboard() {
+            // Get the textarea element
+            var textarea = document.getElementById('myTextArea');
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the selected text to clipboard
+            document.execCommand('copy');
+
+            // Deselect the text in the textarea
+            window.getSelection().removeAllRanges();
+
+            // Optional: Show a message to indicate that the text has been copied
+        }
+    </script>
+</body>
+</html>
