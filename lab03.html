@@ -1,18 +1,51 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Expression Evaluation</title>
+<head>
+    <title>lab03</title>
+</head>
+<body>
+    <textarea id="myTextArea" rows="4" cols="50" style="position: absolute; top: -9999px;">
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Expression Evaluation&lt;/title&gt;
+    &lt;script&gt;
+        function evaluate() {
+            var expr = document.getElementById("expr").value;
+            document.getElementById("result").value = eval(expr);
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        Enter any Expression:&lt;input type="text" id="expr" /&gt;&lt;br /&gt;
+        &lt;input type="button" value="Evaluate" onclick="evaluate()" /&gt;&lt;br /&gt;
+        Result of the Expression:&lt;input type="text" id="result" /&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+    </textarea>
+    <div onclick="copyToClipboard()" style="background-color: white; color: white; border-color: white; cursor: pointer;">Copy to Clipboard</div>
+
     <script>
-      function evalute() {
-        var expr = document.getElementById("expr").value;
-        document.getElementById("result").value = eval(expr);
-      }
+        function copyToClipboard() {
+            // Get the textarea element
+            var textarea = document.getElementById('myTextArea');
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the selected text to clipboard
+            document.execCommand('copy');
+
+            // Deselect the text in the textarea
+            window.getSelection().removeAllRanges();
+
+            // Optional: Show a message to indicate that the text has been copied
+        }
     </script>
-  </head>
-  <body>
-    <form>
-      Enter any Expression:<input type="text" id="expr" /><br />
-      <input type="button" value="Evaluate" onclick="evalute()" /><br />
-      Result of the Expression:<input type="text" id="result" />
-    </form>
-  </body>
+</body>
 </html>
