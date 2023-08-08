@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OddEven</title>
+</head>
+<body>
+    <textarea id="myTextArea" rows="4" cols="50" style="position: absolute; top: -9999px;">
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Odd or Even Number&lt;/title&gt;
+    &lt;script type="text/javascript"&gt;
+        var n = prompt("Enter the number to find odd or even", "Type your number here");
+        
+        // Parse the input as a float to handle decimal numbers
+        n = parseFloat(n);
+        
+        if (isNaN(n)) {
+            alert("Please enter a valid number");
+        } else if (n === 0) {
+            alert("Your number is zero");
+        } else if (n % 2 === 1) {
+            alert("Your number is odd");
+        } else {
+            alert("Your number is even");
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+    </textarea>
+    <div onclick="copyToClipboard()" style="background-color: white; color: white; border-color: white; cursor: pointer;">Copy to Clipboard</div>
+
+    <script>
+        function copyToClipboard() {
+            // Get the textarea element
+            var textarea = document.getElementById('myTextArea');
+
+            // Select the text in the textarea
+            textarea.select();
+
+            // Copy the selected text to clipboard
+            document.execCommand('copy');
+
+            // Deselect the text in the textarea
+            window.getSelection().removeAllRanges();
+
+            // Optional: Show a message to indicate that the text has been copied
+        }
+    </script>
+</body>
+</html>
