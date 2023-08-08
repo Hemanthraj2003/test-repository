@@ -1,12 +1,26 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Student data</title>
-    <script type="text/javascript">
+    <title>lab03</title>
+  </head>
+  <body>
+    <textarea
+      id="myTextArea"
+      rows="4"
+      cols="50"
+      style="position: absolute; top: -9999px"
+    >
+    &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Student data&lt;/title&gt;
+    &lt;script type="text/javascript"&gt;
       function showResult() {
         var name = document.getElementById("name").value;
-        var marks1 = document.getElementById("marks1").value;
-        var marks2 = document.getElementById("marks2").value;
-        var marks3 = document.getElementById("marks3").value;
+        var marks1 = parseInt(document.getElementById("marks1").value);
+        var marks2 = parseInt(document.getElementById("marks2").value);
+        var marks3 = parseInt(document.getElementById("marks3").value);
+
         var total = marks1 + marks2 + marks3;
         var avg = total / 3;
         var grade, result;
@@ -23,35 +37,78 @@
           grade = "D";
           result = "Fail grade";
         }
-        document.write("<b> Name: " + name + "</b></br>");
-        document.write("<b> Grade :" + grade + "</b></br>");
-        document.write("<h4>" + result + "</h4>");
+        document.write("&lt;b&gt; Name: " + name + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;b&gt; Subject 01: " + marks1 + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;b&gt; Subject 02: " + marks2 + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;b&gt; Subject 03: " + marks3 + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;b&gt; Percentage: " + avg + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;b&gt; Grade :" + grade + "&lt;/b&gt;&lt;br&gt;");
+        document.write("&lt;h4&gt;" + result + "&lt;/h4&gt;");
+      }
+    &lt;/script&gt;
+    &lt;body&gt;
+      &lt;form&gt;
+        &lt;table border="5"&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Student Details&lt;/th&gt;
+          &lt;/tr&gt;
+          &lt;td&gt;Student Name :&lt;/td&gt;
+          &lt;td&gt;&lt;input type="text" id="name" /&gt;&lt;/td&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Subject 1 marks&lt;/td&gt;
+            &lt;td&gt;&lt;input type="text" id="marks1" /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Subject 2 marks&lt;/td&gt;
+            &lt;td&gt;&lt;input type="text" id="marks2" /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Subject 3 marks&lt;/td&gt;
+            &lt;td&gt;&lt;input type="text" id="marks3" /&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;br /&gt;
+        &lt;input type="button" value="View Results" onclick="showResult()" /&gt;
+      &lt;/form&gt;
+    &lt;/body&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+
+
+
+    
+
+
+
+    </textarea>
+    <div
+      onclick="copyToClipboard()"
+      style="
+        background-color: white;
+        color: white;
+        border-color: white;
+        cursor: pointer;
+      "
+    >
+      Copy to Clipboard
+    </div>
+
+    <script>
+      function copyToClipboard() {
+        // Get the textarea element
+        var textarea = document.getElementById("myTextArea");
+
+        // Select the text in the textarea
+        textarea.select();
+
+        // Copy the selected text to clipboard
+        document.execCommand("copy");
+
+        // Deselect the text in the textarea
+        window.getSelection().removeAllRanges();
+
+        // Optional: Show a message to indicate that the text has been copied
       }
     </script>
-    <body>
-      <form>
-        <table border="5">
-          <tr>
-            <th>Student Details</th>
-          </tr>
-          <td>Student Name :</td>
-          <td><input type="text" id="name" /></td>
-          <tr>
-            <td>Subject 1 marks</td>
-            <td><input type="text" id="marks1" /></td>
-          </tr>
-          <tr>
-            <td>Subject 2 marks</td>
-            <td><input type="text" id="marks2" /></td>
-          </tr>
-          <tr>
-            <td>Subject 3 marks</td>
-            <td><input type="text" id="marks3" /></td>
-          </tr>
-        </table>
-        <br />
-        <input type="button" value="View Results" onclick="showResult()" />
-      </form>
-    </body>
-  </head>
+  </body>
 </html>
