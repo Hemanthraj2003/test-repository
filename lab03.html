@@ -10,7 +10,7 @@
 &lt;head&gt;
     &lt;title&gt;Expression Evaluation&lt;/title&gt;
     &lt;script&gt;
-        function evaluate() {
+        function evaluateExpr() {
             var expr = document.getElementById("expr").value;
             document.getElementById("result").value = eval(expr);
         }
@@ -19,7 +19,7 @@
 &lt;body&gt;
     &lt;form&gt;
         Enter any Expression:&lt;input type="text" id="expr" /&gt;&lt;br /&gt;
-        &lt;input type="button" value="Evaluate" onclick="evaluate()" /&gt;&lt;br /&gt;
+        &lt;input type="button" value="Evaluate" onclick="evaluateExpr()" /&gt;&lt;br /&gt;
         Result of the Expression:&lt;input type="text" id="result" /&gt;
     &lt;/form&gt;
 &lt;/body&gt;
